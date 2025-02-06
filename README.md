@@ -9,7 +9,7 @@ steps to convert rosbag to video in mp4 format to prevent latency
 ### Step 2: Convert Images to Video with FFmpeg
 After extraction, use this FFmpeg command to create an MP4 video:
 
-`ffmpeg -framerate 30 -pattern_type glob -i "frames/frame*.jpg" \
+`ffmpeg -framerate 30 -pattern_type glob -i "frames/frame*.jpg" 
        -c:v libx264 -crf 25 -pix_fmt yuv420p output_video.mp4`
        
 ### Key Parameters:
