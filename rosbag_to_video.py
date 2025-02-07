@@ -66,7 +66,7 @@ def extract_images(bag_file, output_dir, image_topic, frame_prefix='frame'):
 
     with rosbag.Bag(bag_file, 'r') as bag:
         for topic, msg, _ in bag.read_messages(topics=[image_topic]):
-            cv_img = bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
+            cv_img = bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             frame_path = os.path.join(output_dir, f"{frame_prefix}{frame_count:04d}.jpg")
             cv2.imwrite(frame_path, cv_img)
             frame_count += 1
